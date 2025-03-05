@@ -62,4 +62,7 @@ public class CartService {
         totalBasket.setTotalPrice(totalPrice);  // Обновляем общую стоимость корзины
         totalBasketRepository.save(totalBasket);  // Сохраняем обновленную корзину
     }
+
+    public void addProduct(Long productId) {
+    }
 }

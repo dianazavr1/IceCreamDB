@@ -2,6 +2,7 @@ package com.example.icecreamdb.controller;
 
 import com.example.icecreamdb.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,10 +24,13 @@ public class CartController {
         return "cart"; // Страница, которая отображает содержимое корзины
     }
 
-    @PostMapping("/add-to-cart")
-    public String addToCart(@RequestParam("productId") Long productId) {
-        // Логика добавления товара в корзину
-        return "redirect:/cart";  // Перенаправление на страницу корзины
+    @PostMapping("/add")
+    public String addToCart(@RequestParam Long productId) {
+        cartService.addProduct(productId);
+        return "redirect:/cart"; // После добавления возвращаемся в корзину
     }
+
+
+
 
 }
