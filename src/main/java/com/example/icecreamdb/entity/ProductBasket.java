@@ -13,7 +13,7 @@ public class ProductBasket {
     private Long productId;
     private int qty;
     private double totalPrice;
-    private String cartCookie;
+    //private String cartCookie;
 
     // Getters and setters
 
@@ -48,12 +48,12 @@ public class ProductBasket {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
-    public String getCartCookie() {
-        return cartCookie;
-    }
-
-    public void setCartCookie(String cartCookie) {
-        this.cartCookie = cartCookie;
-    }
 }
+//    public String getCartCookie() {
+//        return cartCookie;
+//    }
+//
+//    public void setCartCookie(String cartCookie) {
+//        this.cartCookie = cartCookie;
+//    }
+//}

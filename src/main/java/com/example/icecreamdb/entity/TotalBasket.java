@@ -10,7 +10,7 @@ public class TotalBasket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String cartCookie;
+//    private String cartCookie;
     private double totalPrice;
 
     // Getters and setters
@@ -23,13 +23,13 @@ public class TotalBasket {
         this.id = id;
     }
 
-    public String getCartCookie() {
-        return cartCookie;
-    }
-
-    public void setCartCookie(String cartCookie) {
-        this.cartCookie = cartCookie;
-    }
+//    public String getCartCookie() {
+//        return cartCookie;
+//    }
+//
+//    public void setCartCookie(String cartCookie) {
+//        this.cartCookie = cartCookie;
+//    }
 
     public double getTotalPrice() {
         return totalPrice;
