@@ -1,19 +1,22 @@
 package com.example.icecreamdb.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class TotalBasket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    private String cartCookie;
-    private double totalPrice;
 
-    // Getters and setters
+    private Double totalPrice;  // Общая стоимость корзины
+
+    @OneToMany(mappedBy = "totalBasket")
+    private List<ProductBasket> productBaskets;  // Список товаров в корзине
+
+    // Геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -23,19 +26,20 @@ public class TotalBasket {
         this.id = id;
     }
 
-//    public String getCartCookie() {
-//        return cartCookie;
-//    }
-//
-//    public void setCartCookie(String cartCookie) {
-//        this.cartCookie = cartCookie;
-//    }
-
-    public double getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public List<ProductBasket> getProductBaskets() {
+        return productBaskets;
+    }
+
+    public void setProductBaskets(List<ProductBasket> productBaskets) {
+        this.productBaskets = productBaskets;
+    }
 }
+

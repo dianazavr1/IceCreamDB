@@ -1,21 +1,23 @@
 package com.example.icecreamdb.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class ProductBasket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long productId;
-    private int qty;
-    private double totalPrice;
-    //private String cartCookie;
 
-    // Getters and setters
+    @ManyToOne
+    private Product product;  // Продукт, который добавлен в корзину
+
+    private int qty;  // Количество товара
+
+    @ManyToOne
+    private TotalBasket totalBasket;  // Связь с общей корзиной
+
+    // Геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -25,12 +27,12 @@ public class ProductBasket {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQty() {
@@ -41,19 +43,12 @@ public class ProductBasket {
         this.qty = qty;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public TotalBasket getTotalBasket() {
+        return totalBasket;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalBasket(TotalBasket totalBasket) {
+        this.totalBasket = totalBasket;
     }
 }
-//    public String getCartCookie() {
-//        return cartCookie;
-//    }
-//
-//    public void setCartCookie(String cartCookie) {
-//        this.cartCookie = cartCookie;
-//    }
-//}
+
